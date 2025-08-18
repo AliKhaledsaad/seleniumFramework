@@ -16,10 +16,10 @@ public class AddProdcutReviewTest extends TestBase{
 	String reviewText="good product";
 	int rating=5;
 	char gender ='m';
-	String fname = "ali";
-	String lname = "saad";
-	String email = "test312230@gmail.com";
-	String password="a12345678z";
+	String fname = "ali22";
+	String lname = "saad22";
+	String email = "test3xxzzzx30@gmail.com";
+	String password="addsssszzzz78z";
 	
 	HomePage homeObject;
 	UserRegistrationPage registerObject;
