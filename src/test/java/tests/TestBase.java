@@ -46,7 +46,7 @@ public class TestBase extends AbstractTestNGCucumberTests{
 			prefs.put("translate_whitelists", new HashMap<String, String>());
 			prefs.put("translate.enabled", false);
 			prefs.put("autofill.profile_enabled", false);
-	        prefs.put("autofill.address_enabled", false);
+			prefs.put("autofill.address_enabled", false);
 			option.setExperimentalOption("prefs", prefs);
 			option.addArguments("--ignore-certificate-errors");
 			option.addArguments("--allow-insecure-localhost");
@@ -83,6 +83,38 @@ public class TestBase extends AbstractTestNGCucumberTests{
 			// Disable web security (optional for testing)
 			options.addArguments("--disable-web-security");
 			driver = new EdgeDriver(options);
+		}
+		if(browserName.equalsIgnoreCase("chrome-headless"))
+		{
+			System.setProperty("webDriver.chrome.driver",System.getProperty("user.dir")+"/drivers/chromedriver.exe");
+			ChromeOptions option = new ChromeOptions();
+			option.addArguments("--headless");
+		
+			Map<String, Object> prefs = new HashMap<>();
+			prefs.put("credentials_enable_service", false);
+			prefs.put("profile.password_manager_enabled", false);
+			prefs.put("profile.default_content_setting_values.notifications", 2);
+
+			// Disable popup blocking (optional)
+			prefs.put("profile.default_content_settings.popups", 0);
+			prefs.put("download.default_directory", downloadPath);
+			// Disable translation popup
+			prefs.put("translate_whitelists", new HashMap<String, String>());
+			prefs.put("translate.enabled", false);
+			prefs.put("autofill.profile_enabled", false);
+			prefs.put("autofill.address_enabled", false);
+			option.setExperimentalOption("prefs", prefs);
+			option.addArguments("--ignore-certificate-errors");
+			option.addArguments("--allow-insecure-localhost");
+			option.addArguments("--disable-web-security");
+			option.addArguments("--disable-notifications");
+			option.addArguments("--disable-popup-blocking");
+			option.addArguments("--disable-infobars");
+			option.addArguments("--disable-save-password-bubble");
+			option.addArguments("--disable-blink-features=AutomationControlled");
+			//option.addArguments("--disable-print-preview");
+			option.addArguments("--kiosk-printing");
+			driver = new ChromeDriver(option);
 		}
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();

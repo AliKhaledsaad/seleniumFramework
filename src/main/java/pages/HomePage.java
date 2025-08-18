@@ -15,7 +15,7 @@ public class HomePage extends PageBase{
 		super(driver);
 		action = new Actions(driver);
 	}
-	@FindBy(linkText ="Register")
+	@FindBy(css="a.ico-register")
 	WebElement registerLink;
 	
 	@FindBy(linkText="Log in")
