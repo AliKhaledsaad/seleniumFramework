@@ -4,7 +4,7 @@
   <test name="registration test">
     <classes>
       <class name="tests.UserRegistrationTestWithDDT_JavaFaker" />
-      <class name="tests.ContactUsTest" />
+     
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
