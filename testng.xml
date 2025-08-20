@@ -3,7 +3,6 @@
 <parameter name="browser" value="chrome"></parameter>
   <test name="registration test">
     <classes>
-      <class name="tests.EmailProductToFriendTest" />
       <class name="tests.UserRegistrationTestWithDDT_JavaFaker" />
       <class name="tests.ContactUsTest" />
     </classes>

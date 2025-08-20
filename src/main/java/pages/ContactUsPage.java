@@ -29,8 +29,11 @@ public class ContactUsPage extends PageBase
 	
 	public void contactUs(String name,String email,String enquiry)
 	{
+		yourNameTxtBox.clear();
 		sendTxtElmentText(yourNameTxtBox, name);
+		emailTxtBox.clear();
 		sendTxtElmentText(emailTxtBox, email);
+		enquiryTxtBox.clear();
 		sendTxtElmentText(enquiryTxtBox, enquiry);
 		clickButton(submitBtn);
 	}
