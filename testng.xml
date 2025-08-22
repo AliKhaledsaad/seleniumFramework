@@ -1,10 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<suite parallel="false" name="nopCommerce Regression Suite" preserve-order="false">
-<parameter name="browser" value="chrome"></parameter>
-  <test name="registration test">
-    <classes>
-      <class name="tests.UserRegistrationTestWithDDT_JavaFaker" />
-     
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ParallelSuite" parallel="tests" thread-count="2">
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.UserRegistrationTestWithDDT_JavaFakerParallel"/>
+        </classes>
+    </test>
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.UserRegistrationTestWithDDT_JavaFakerParallel"/>
+        </classes>
+    </test>
+</suite>
+
