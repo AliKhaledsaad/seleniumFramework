@@ -12,7 +12,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-
+import data.LoadProperties;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import utilities.Helper;
 
@@ -20,8 +20,11 @@ public class TestBase2 extends AbstractTestNGCucumberTests {
 
     protected ThreadLocal<RemoteWebDriver> driver=null;
 	public static String  downloadPath = System.getProperty("user.dir")+"/Downloads";
-
     protected String url = "https://localhost:59579/";
+    
+    public static final String username = LoadProperties.saucelabsdata.getProperty("username");
+    public static final String access_key = LoadProperties.saucelabsdata.getProperty("accesskey");
+    public static final String saucelabsURL = LoadProperties.saucelabsdata.getProperty("seleniumURL");
 
     @BeforeTest
     @Parameters("browser")
@@ -53,7 +56,17 @@ public class TestBase2 extends AbstractTestNGCucumberTests {
 			option.addArguments("--disable-blink-features=AutomationControlled");
 			//option.addArguments("--disable-print-preview");
 			option.addArguments("--kiosk-printing");
-            driver.set(new RemoteWebDriver(new URL("http://localhost:4444"),option));
+			option.setPlatformName("Windows 10");
+			option.setBrowserVersion("latest");
+			Map<String, Object> sauceOptions = new HashMap<>();
+			sauceOptions.put("username", username);
+			sauceOptions.put("accessKey", access_key);
+			sauceOptions.put("build", "selenium-build-IK3UL");
+			sauceOptions.put("name", "chrome test");
+			option.setCapability("sauce:options", sauceOptions);
+			
+			
+            driver.set(new RemoteWebDriver(new URL(saucelabsURL),option));
         } else if (browser.equalsIgnoreCase("firefox")) {
         	FirefoxOptions option = new FirefoxOptions();
 			option.setAcceptInsecureCerts(true);
@@ -63,7 +76,15 @@ public class TestBase2 extends AbstractTestNGCucumberTests {
 			option.addPreference("dom.security.https_only_mode", false); // Allow HTTP
 			option.addPreference("browser.download.dir", downloadPath);
 			option.addPreference("dom.security.https_only_mode_pbm", false); // A
-            driver.set(new RemoteWebDriver(new URL("http://localhost:4444"), option));
+			option.setPlatformName("Linux");
+			option.setBrowserVersion("latest");
+			Map<String, Object> sauceOptions = new HashMap<>();
+			sauceOptions.put("username", username);
+			sauceOptions.put("accessKey", access_key);
+			sauceOptions.put("build", "selenium-build-IK3UL");
+			sauceOptions.put("name", "firefox test");
+			option.setCapability("sauce:options", sauceOptions);
+            driver.set(new RemoteWebDriver(new URL(saucelabsURL), option));
         }
         getDriver().manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(10));
         getDriver().navigate().to(url);
