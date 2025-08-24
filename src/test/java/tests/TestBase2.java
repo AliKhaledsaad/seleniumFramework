@@ -76,15 +76,15 @@ public class TestBase2 extends AbstractTestNGCucumberTests {
 			option.addPreference("dom.security.https_only_mode", false); // Allow HTTP
 			option.addPreference("browser.download.dir", downloadPath);
 			option.addPreference("dom.security.https_only_mode_pbm", false); // A
-			option.setPlatformName("Linux");
-			option.setBrowserVersion("latest");
-			Map<String, Object> sauceOptions = new HashMap<>();
-			sauceOptions.put("username", username);
-			sauceOptions.put("accessKey", access_key);
-			sauceOptions.put("build", "selenium-build-IK3UL");
-			sauceOptions.put("name", "firefox test");
-			option.setCapability("sauce:options", sauceOptions);
-            driver.set(new RemoteWebDriver(new URL(saucelabsURL), option));
+		//	option.setPlatformName("Linux");
+		//	option.setBrowserVersion("latest");
+			//Map<String, Object> sauceOptions = new HashMap<>();
+			//sauceOptions.put("username", username);
+		//	sauceOptions.put("accessKey", access_key);
+		//	sauceOptions.put("build", "selenium-build-IK3UL");
+		//	sauceOptions.put("name", "firefox test");
+			//option.setCapability("sauce:options", sauceOptions);
+            driver.set(new RemoteWebDriver(new URL("http://localhost:4444"), option));
         }
         getDriver().manage().timeouts().implicitlyWait(java.time.Duration.ofSeconds(10));
         getDriver().navigate().to(url);
