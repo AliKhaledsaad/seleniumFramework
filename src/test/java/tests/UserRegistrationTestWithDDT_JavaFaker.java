@@ -39,11 +39,12 @@ public class UserRegistrationTestWithDDT_JavaFaker extends TestBase
 	}
 	
 	@Test(dependsOnMethods ="CanUserLogoutSuccessfully" )
-	public void CanUserLoginSuccessfully()
+	public void CanUserLoginSuccessfully() throw InterruptedException
 	{
 	homeObject.openLoginPage();
 	loginObject = new LoginPage(driver);
 	loginObject.userLogin(email, password);
+		thread.sleep(3000);
 	Assert.assertTrue(registerObject.logoutLink.isDisplayed());
 	}
 }
