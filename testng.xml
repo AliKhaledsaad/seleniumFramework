@@ -4,13 +4,13 @@
         <parameter name="browser" value="chrome"/>
         
         <classes>
-            <class name="tests.UserRegistrationTestWithDDT_JavaFakerParallel"/>
+            <class name="tests.UserRegistrationTestWithDDT_JavaFaker"/>
         </classes>
     </test>
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
         <classes>
-            <class name="tests.UserRegistrationTestWithDDT_JavaFakerParallel"/>
+            <class name="tests.UserRegistrationTestWithDDT_JavaFaker"/>
         </classes>
     </test>
 </suite>
