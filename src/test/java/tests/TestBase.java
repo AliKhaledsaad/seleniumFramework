@@ -24,7 +24,7 @@ import utilities.Helper;
 public class TestBase extends AbstractTestNGCucumberTests{
 
 	public static WebDriver driver;
-	protected String url="https://localhost:59579/";
+	protected String url="https://localhost:5001/";
 	public static String  downloadPath = System.getProperty("user.dir")+"/Downloads";
 	@BeforeSuite
 	@Parameters({"browser"})
