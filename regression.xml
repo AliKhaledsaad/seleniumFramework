@@ -3,7 +3,7 @@
 <parameter name="browser" value="chrome"></parameter>
   <test name="registration2 test">
     <classes>
-      <class name="tests.SearchProductTest" />
+      <class name="tests.SearchProductAutoCompeleteTest" />
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
