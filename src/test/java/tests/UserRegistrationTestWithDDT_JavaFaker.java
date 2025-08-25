@@ -44,7 +44,7 @@ public class UserRegistrationTestWithDDT_JavaFaker extends TestBase
 	homeObject.openLoginPage();
 	loginObject = new LoginPage(driver);
 	loginObject.userLogin(email, password);
-		thread.sleep(3000);
+		Thread.sleep(5000);
 	Assert.assertTrue(homeObject.logoutLink.getText().contains("Log Out"));
 	}
 }
