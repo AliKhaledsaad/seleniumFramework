@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Regression Suite" preserve-order="false">
-<parameter name="browser" value="edge"/>
+<parameter name="browser" value="chrome"/>
   <test name="registration2 test">
     <classes>
       <class name="tests.AddProdcutReviewTest" />
