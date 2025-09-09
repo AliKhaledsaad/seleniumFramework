@@ -15,7 +15,7 @@ pipeline {
         stage('Test with Regression Profile') {
             steps {
                dir('seleniumFramework') {   // path where pom.xml lives
-                bat "mvn clean test -P regression"
+                bat "mvn test -Pregression"
                 }
             }
         }
