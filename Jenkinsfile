@@ -7,6 +7,14 @@ pipeline {
     }
 
     stages {
+        stage('Test with Regression Profile') {
+    steps {
+        dir('seleniumFramework') {   // path where pom.xml lives
+            bat "mvn clean test -P regression"
+        }
+    }
+}
+
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
@@ -26,7 +34,6 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     archiveArtifacts 'target/*.jar'
                 }
-            }
-        }
     }
 }
+    }
