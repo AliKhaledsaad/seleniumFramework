@@ -6,12 +6,10 @@ pipeline {
     }
 
     stages {
-
-        stage('Test with Regression Profile') {
+        stage('Build & Test Regression') {
             steps {
-               dir('seleniumFramework') {   // path where pom.xml lives
-                bat "mvn test -Pregression"
-                }
+                // Run in the workspace root where pom.xml already exists
+                bat "mvn clean test -P regression"
             }
         }
     }
