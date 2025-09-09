@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="nopCommerce Regression Suite" preserve-order="false">
+<parameter name="browser" value="firefox"/>
+  <test name="registration test">
+    <classes>
+      <class name="tests.AddProdcutReviewTest" />
+      <class name="tests.AddProductToCartTest" />
+      <class name="tests.AddProductToWishlistTest" />
+      <class name="tests.EmailProductToFriendTest" />
+      <class name="tests.ProductHoverMenuTest" />
+      <class name="tests.GuestCheckoutCartTest" />
+      <class name="tests.UserRegistrationTest" />
+      <class name="tests.MyAccountTest" />
+      <class name="tests.SearchProductAutoCompeleteTest" />
+      <class name="tests.ContactUsTest" />
+      <class name="tests.CompareProductsTest" />
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
