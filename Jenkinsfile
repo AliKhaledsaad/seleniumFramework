@@ -13,7 +13,7 @@ pipeline {
                 git 'https://github.com/jglick/simple-maven-project-with-tests.git'
 
                 // Run Maven on a Unix agent.
-                sh "mvn test -Pregression"
+                bat "mvn test -Pregression"
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn test -Pregression"
