@@ -6,11 +6,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/AliKhaledsaad/seleniumFramework.git'
-            }
-        }
 
         stage('Test with Regression Profile') {
             steps {
